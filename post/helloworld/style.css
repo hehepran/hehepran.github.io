@@ -1,0 +1,13 @@
+.content {
+    margin-left: 30%;
+    margin-right: 25%;
+}
+
+img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+code {
+    font-size: 20px;
+}
