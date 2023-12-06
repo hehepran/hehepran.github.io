@@ -1,57 +1,56 @@
-#header {
-    margin-top: 25px;
+* {
+    overflow: hidden;
 }
 
-/* Center the header and app.
-   The header consists of tabs and titlepage. */
-#header, #app {
-    width: 100%;
+#titlepage {
+    margin-top: 30px;
+}
+
+#projectdescription {
+    margin: 0 50px 0 50px;
+}
+
+.content {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column    
+    flex-direction: column;
 }
 
-#dropouter {
-/*    display: block;*/
-    max-width: 750px;
+.container {
+    max-width: 650px;
     width: 100%;
 }
 
-#dropinner {
-    height: 250px;
+.drag-area {
+    height: 400px;
     border: 3px dashed black;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-/*    margin: 20px auto;*/
+    margin: 20px auto;
 }
 
-#dropinner #button {
+.drag-area .header {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.drag-area .button {
+    font-size: 20px;
+    font-weight: 500;
     background: green;
     cursor: pointer;
 }
 
-#dropinner.active {
-    border: 1px solid white;
+.drag-area.active {
+    border: 2px solid white;
     background: green;
 }
 
-/* Set how the image will be displayed. */
-#displayer {
-    max-width: 750px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 25px auto;
-}
-
-#displayer img {
+.drag-area img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-/*    border: 1px solid #fff;*/
 }

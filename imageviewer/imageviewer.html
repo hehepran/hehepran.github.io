@@ -5,41 +5,35 @@
     <title>Image Viewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="header">
+    <center>
         <!-- TAB -->
-        <div>
-            <a href="../index.html">Home</a>
-            |
-            <a href="../contact/contact.html">Contact</a>
-            |
-            <a href="../post/post.html">Post</a>
-            |
+        <a href="../index.html">Home</a>
+        |
+        <a href="../contact/contact.html">Contact</a>
+        |
+        <a href="../post/post.html">Post</a>
+        |
+        Image Viewer
+        
+        <!-- TITLE -->
+        <h1 id="titlepage">
             Image Viewer
-        </div>
+        </h1>
+    </center>
 
-        <!-- TITLE OF PAGE -->
-        <h1>Image Viewer</h1>
-    </div>
-
-    <!-- CONTENT/APPLICATION -->
-    <div id="app">
-
-        <!-- Area to drop an image file. -->
-        <div id="dropouter">
-            <div id="dropinner">
-                <span id="guide">Drop here</span>
-                <span>or <button type="button" id="button">browse</button> the image.</span>
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <div class="drag-area">
+                <span class="header"> Drop here </span>
+                <span class="header"> or <span class="button">browse</span> the image.</span>
                 <input type="file" hidden>
             </div>
-        </div>
-
-        <!-- Area to show the dropped image. -->
-        <div id="displayer">
+            
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
