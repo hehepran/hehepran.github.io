@@ -1,9 +1,9 @@
-const dragArea = document.querySelector(".drag-area");
-const dragText = document.querySelector(".header");
+const dropArea = document.querySelector("#dropinner");
+const guide = document.querySelector("#guide");
+const displayer = document.querySelector("#displayer");
 
-let button = document.querySelector(".button");
+let button = document.querySelector("#button");
 let input = document.querySelector("input");
-
 let file;
 
 button.onclick = () => {
@@ -18,29 +18,32 @@ input.addEventListener("change", function() {
 });
 
 // When file is inside the drag area.
-dragArea.addEventListener("dragover", (event) => {
+dropArea.addEventListener("dragover", (event) => {
     event.preventDefault();
 
-    dragText.textContent = "Release to Upload";
-    dragArea.classList.add("active");
+    guide.textContent = "Release to show";
+    dropArea.classList.add("active");
 });
 
 // When file leaves the drag area.
-dragArea.addEventListener("dragleave", () => {
-    dragText.textContent = "Drag & drop";
-    dragArea.classList.remove("active");
+dropArea.addEventListener("dragleave", () => {
+    guide.textContent = "Drag here";
+    dropArea.classList.remove("active");
 });
 
 // When the file is dropped in the drag area.
-dragArea.addEventListener("drop", (event) => {
+dropArea.addEventListener("drop", (event) => {
     event.preventDefault();
 
     file = event.dataTransfer.files[0];
     displayFile();
 });
 
+
 function displayFile() {
     let fileType = file.type;
+
+    /* Caution: How to include all image extensions? */
     let validExtensions = [
         "image/jpeg",
         "image/jpg",
@@ -54,11 +57,15 @@ function displayFile() {
         fileReader.onload = () => {
             let fileURL = fileReader.result;
             let imgTag = `<img src="${fileURL}" alt="">`;
-            dragArea.innerHTML = imgTag;
+            displayer.innerHTML = imgTag;
         };
         fileReader.readAsDataURL(file);
     } else {
         alert("This file is not an image!");
-        dragArea.classList.remove("active");
+        dropArea.classList.remove("active");
     }
+
+    /* Revert text "Release to show" -> "Drag here" */
+    guide.textContent = "Drag here";
+    dropArea.classList.remove("active")
 }
