@@ -1,6 +1,8 @@
 const dropArea = document.querySelector("#dropinner");
 const guide = document.querySelector("#guide");
 const displayer = document.querySelector("#displayer");
+// Space for displaying exif metadata.
+const exifTable = document.querySelector("#exif-table");
 
 let button = document.querySelector("#button");
 let input = document.querySelector("input");
@@ -58,8 +60,31 @@ function displayFile() {
             let fileURL = fileReader.result;
             let imgTag = `<img src="${fileURL}" alt="">`;
             displayer.innerHTML = imgTag;
+
+            // THIS
+            let img = document.querySelector('img');
+
+            // Display exposure time in console.
+            // window.exifr.parse(img).then(exif => console.log('Exposure:', exif.ExposureTime));
+
+            // Display exposure time in browser view.
+            alls = window.exifr.parse(img);
+            alls.then(exif => {
+              let exifTag = `
+            <table>
+                <tr> 
+                    <th>X Time</th>
+                </tr>
+                <tr>
+                    <td>${alls.ExposureTime}</td>
+                </tr>
+            </table>`;
+            exifTable.innerHTML = exifTag;
+            });
+
         };
-        fileReader.readAsDataURL(file);
+        
+        fileReader.readAsDataURL(file);        
     } else {
         alert("This file is not an image!");
         dropArea.classList.remove("active");
